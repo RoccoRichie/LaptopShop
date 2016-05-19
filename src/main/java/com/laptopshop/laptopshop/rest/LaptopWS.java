@@ -40,9 +40,11 @@ public class LaptopWS {
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Response findAll() {
+	public Response findAllLaptops() {
 		System.out.println("Get all Laptops");
 		List<Laptop> laptops = laptopDAO.getAllLaptops();
+		System.out.println("...got laptops...");
+		System.out.println(laptops.size());
 		return Response.status(200).entity(laptops).build();
 	}
 

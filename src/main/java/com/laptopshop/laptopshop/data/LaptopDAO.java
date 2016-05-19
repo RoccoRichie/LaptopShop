@@ -22,13 +22,6 @@ public class LaptopDAO {
 		return query.getResultList();
 	}
 
-	// // This Works!!!!!!
-	// public Laptop getLaptopByName(String lapName) {
-	// Query query = em.createQuery("SELECT n FROM Laptop n where n.lapName= '"
-	// + lapName + "'");
-	//
-	// return (Laptop) query.getSingleResult();
-	// }
 	public List<Laptop> getLaptopsByName(String lapName) {
 		Query query = em.createQuery("SELECT n FROM Laptop AS n " + "WHERE n.lapName LIKE ?1");
 		query.setParameter(1, "%" + lapName.toUpperCase() + "%");
