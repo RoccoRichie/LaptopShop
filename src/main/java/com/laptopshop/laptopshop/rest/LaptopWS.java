@@ -27,30 +27,33 @@ public class LaptopWS {
 	@EJB
 	private LaptopDAO laptopDAO;
 
-	@GET
-	@Path("/find/{lapName}")
-	@Produces({ MediaType.APPLICATION_JSON })
-	public Response findByName(@PathParam("lapName") String lapName) {
-		System.out.println("Get Laptop by name");
-		// lapName = lapName.replaceAll("_", " ");
-		Laptop laptops = laptopDAO.getLaptopByName(lapName);
-		return Response.status(200).entity(laptops).build();
-	}
+	// this works
 	// @GET
-	// @Path("/Name/{lapName}")
+	// @Path("/find/{lapName}")
 	// @Produces({ MediaType.APPLICATION_JSON })
 	// public Response findByName(@PathParam("lapName") String lapName) {
 	// System.out.println("Get Laptop by name");
-	// lapName = lapName.replaceAll("_", " ");
-	// List<Laptop> laptops = laptopDAO.getLaptopByName(lapName);
+	// // lapName = lapName.replaceAll("_", " ");
+	// Laptop laptops = laptopDAO.getLaptopByName(lapName);
 	// return Response.status(200).entity(laptops).build();
 	// }
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Response findAll() {
+	public Response findAllLaptops() {
 		System.out.println("Get all Laptops");
 		List<Laptop> laptops = laptopDAO.getAllLaptops();
+		System.out.println("...got laptops...");
+		System.out.println(laptops.size());
+		return Response.status(200).entity(laptops).build();
+	}
+
+	@GET
+	@Path("/find/{query}")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public Response findByName(@PathParam("query") String query) {
+		System.out.println("findByName: " + query);
+		List<Laptop> laptops = laptopDAO.getLaptopsByName(query);
 		return Response.status(200).entity(laptops).build();
 	}
 
