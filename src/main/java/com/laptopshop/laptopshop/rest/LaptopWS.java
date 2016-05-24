@@ -61,7 +61,7 @@ public class LaptopWS {
 	@Produces({ MediaType.APPLICATION_JSON })
 	@Path("/{id}")
 	public Response findLaptopById(@PathParam("id") int id) {
-		Laptop laptop = laptopDAO.getLaptop(id);
+		Laptop laptop = laptopDAO.getLaptopById(id);
 		return Response.status(200).entity(laptop).build();
 	}
 

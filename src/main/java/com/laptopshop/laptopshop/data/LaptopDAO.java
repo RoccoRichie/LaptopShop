@@ -28,7 +28,7 @@ public class LaptopDAO {
 		return query.getResultList();
 	}
 
-	public Laptop getLaptop(int id) {
+	public Laptop getLaptopById(int id) {
 		return em.find(Laptop.class, id);
 	}
 
@@ -43,7 +43,7 @@ public class LaptopDAO {
 
 	public void delete(int id) {
 		System.out.println("Laptop with id: " + id + " was deleted.");
-		em.remove(getLaptop(id));
+		em.remove(getLaptopById(id));
 	}
 
 }

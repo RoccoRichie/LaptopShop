@@ -1,8 +1,6 @@
 package com.laptopshop.laptopshop.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -12,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Laptop {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	// @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	// @Column(name = "lapName")
