@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-   <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-   <groupId>com.laptopshop</groupId>
-   <artifactId>laptopshop</artifactId>
-   <version>0.0.1-SNAPSHOT</version>
-   <packaging>war</packaging>
+	<groupId>com.laptopshop</groupId>
+	<artifactId>laptopshop</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 
-   <name>Laptopshop</name>
-   <description>A Laptopshop JBoss AS 7 / EAP 6, generated from the jboss-javaee6-webapp archetype</description>
+	<name>Laptopshop</name>
+	<description>A Laptopshop JBoss AS 7 / EAP 6, generated from the jboss-javaee6-webapp archetype</description>
 
 	<url>http://jboss.org/jbossas</url>
 	<licenses>
@@ -64,6 +65,11 @@
 				<version>${version.jboss.bom}</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-all</artifactId>
+				<version>1.9.5</version>
 			</dependency>
 			<dependency>
 				<groupId>org.jboss.bom</groupId>
@@ -172,11 +178,11 @@
 			<artifactId>arquillian-junit-container</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency> 
-		<groupId>org.jboss.arquillian.protocol</groupId>
-		 <artifactId>arquillian-protocol-servlet</artifactId > 
-		 <scope>test</scope> 
-		 </dependency>
+		<dependency>
+			<groupId>org.jboss.arquillian.protocol</groupId>
+			<artifactId>arquillian-protocol-servlet</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -237,23 +243,23 @@
 				</plugins>
 			</build>
 		</profile>
-	<profile>
-    <id>jbossas-remote-7</id>
-    <dependencies>
-        <dependency>
-            <groupId>org.jboss.spec</groupId>
-            <artifactId>jboss-javaee-6.0</artifactId>
-            <version>1.0.0.Final</version>
-            <type>pom</type>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.as</groupId>
-            <artifactId>jboss-as-arquillian-container-remote</artifactId>
-            <version>7.1.1.Final</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-</profile>
+		<profile>
+			<id>jbossas-remote-7</id>
+			<dependencies>
+				<dependency>
+					<groupId>org.jboss.spec</groupId>
+					<artifactId>jboss-javaee-6.0</artifactId>
+					<version>1.0.0.Final</version>
+					<type>pom</type>
+					<scope>provided</scope>
+				</dependency>
+				<dependency>
+					<groupId>org.jboss.as</groupId>
+					<artifactId>jboss-as-arquillian-container-remote</artifactId>
+					<version>7.1.1.Final</version>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+		</profile>
 	</profiles>
 </project>
