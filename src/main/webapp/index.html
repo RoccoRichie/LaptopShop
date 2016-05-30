@@ -1,7 +1,284 @@
-<!-- Plain HTML page that kicks us into the app -->
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Refresh" content="0; URL=index.jsf">
+<link rel="shortcut icon" type="image/x-icon"
+	href="images/Laptop_00.png" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>LaptopShop</title>
+<meta name="description"
+	content="Laptop Shop implementing Clent Restful Service with Bootstrap and Ajax and Backend Java and MySQL">
+<meta name="author" content="Richie Loughran">
+<!-- Bootstrap & Fontawesome -->
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- Start Bootswatch Themes (Uncomment the one you want to use. More info at http://www.bootswatch.com) -->
+<link href="assets/themes/darkly.css" rel="stylesheet">
+
+<style type="text/css">
+.jumbotron, .page {
+	padding-top: 140px;
+	padding-bottom: 140px;
+	margin-bottom: 0px;
+}
+</style>
+<!-- End Inline CSS -->
 </head>
+<body style="padding-top: 50px;">
+	<!-- Start Navigation Bar -->
+	<nav id="topnavigation" class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#topnav" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Laptops</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div id="topnav" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button"><i class="fa fa-list-alt"></i>
+							Features <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#headline">Top</a></li>
+							<li><a href="#testimonials">Tables</a></li>
+							<li><a href="#carousel">Carousel</a></li>
+							<li><a href="#tabs">Multi-Content Tabs</a></li>
+							<li><a href="#features">Features Column</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#thumbnails">Killer Thumbnails</a></li>
+							<li><a href="#elements">Multi-Element Page</a></li>
+							<li><a href="#signup">Pricing Tables</a></li>
+							<li><a href="#footer">Functional Footer</a></li>
+						</ul></li>
+				</ul>
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search">
+					</div>
+					<button type="submit" class="btn btn-default">
+						<i class="fa fa-search"></i>
+					</button>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<p class="navbar-text">
+						<img src="images/avatar02.jpg" width="18" class="img-circle">
+						Welcome back, Richie!
+					</p>
+					<li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	<!-- End Navigation Bar -->
+	<!-- Start Section -->
+	<div id="headline" class="jumbotron">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h1>LaptopShop</h1>
+					<p>Welcome to the Best Laptop Shop in Ait</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Section -->
+	<!-- Start Section -->
+	<!-- Insert the Laptop Lists -->
+	<div id="id01"></div>
+	<div class="container">
+		<a class="btn btn-info" role="button" data-toggle="collapse"
+			href="#collapse_alertInfo" aria-expanded="true" id="laptopAllList"><span
+			class="glyphicon glyphicon-list-alt"></span> All Laptops</a> <a
+			class="btn btn-success" role="button" data-toggle="collapse"
+			href="#collapse_alertSuccess" aria-expanded="false"><span
+			class="glyphicon glyphicon-apple"></span> Brands</a> <a
+			class="btn btn-danger" role="button" data-toggle="collapse"
+			href="#collapse_alertDanger" aria-expanded="false"><span
+			class="glyphicon glyphicon-tags"></span> Memory</a>
+		<div class="collapse" id="collapse_alertInfo">
+			<p></p>
+			<div id="collapse_alertInfo" class="alert alert-info">
+				<div id="id01"></div>
+				All the Laptop Products
+			</div>
+		</div>
+		<div id="collapse_alertSuccess" class="collapse out">
+			<p></p>
+			<div class="alert alert-success">Hey there! Pay attention to
+				this notice because it's really, and I mean REALLY, IMPORTANTE!</div>
+		</div>
+		<div id="collapse_alertDanger" class="collapse out">
+			<p></p>
+			<div class="alert alert-danger">Hey there! Pay attention to
+				this notice because it's really, and I mean REALLY, IMPORTANTE!</div>
+		</div>
+
+	</div>
+
+	<!-- End Section -->
+	<!-- Start Carousel -->
+	<div id="carousel" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carousel-example-generic" data-slide-to="0"
+				class="active"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+				<img src="images/carousel01.jpg" alt="First slide">
+			</div>
+			<div class="item">
+				<img src="images/carousel02.jpg" alt="Second slide">
+			</div>
+			<div class="item">
+				<img src="images/carousel03.jpg" alt="Third slide">
+			</div>
+		</div>
+		<a class="left carousel-control" href="#carousel-example-generic"
+			role="button" data-slide="prev"> <span
+			class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span
+			class="sr-only">Previous</span>
+		</a> <a class="right carousel-control" href="#carousel-example-generic"
+			role="button" data-slide="next"> <span
+			class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+	<!-- End Carousel -->
+	<!-- Start Section -->
+	<!-- End Section -->
+	<!-- Start Section -->
+	<div id="features" class="jumbotron" style="background: transparent;">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center palette-headline">
+					<h1 class="text-capitalize">
+						Image-Based Content Blocks<br> <small>Perfect For
+							Listing Main Benefits</small>
+					</h1>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+				</div>
+				<div class="col-md-4 text-center">
+					<p>
+						<img src="images/icons/png/Retina-Ready.png" width="168"
+							height="150" alt="benefit">
+					</p>
+					<p>&nbsp;</p>
+					<h4 class="text-capitalize">Benefit #1 Here</h4>
+					<p class="text-muted">
+						<small>Lorem ipsum dolor sit amet, consetetur sadipscing
+							elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+							magna aliquyam erat, sed diam voluptua.</small>
+					</p>
+					<p>&nbsp;</p>
+				</div>
+				<div class="col-md-4 text-center">
+					<p>
+						<img src="images/icons/png/Chat.png" width="150" height="150"
+							alt="benefit">
+					</p>
+					<p>&nbsp;</p>
+					<h4 class="text-capitalize">Benefit #2 Here</h4>
+					<p class="text-muted">
+						<small>Lorem ipsum dolor sit amet, consetetur sadipscing
+							elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+							magna aliquyam erat, sed diam voluptua.</small>
+					</p>
+					<p>&nbsp;</p>
+				</div>
+				<div class="col-md-4 text-center">
+					<p>
+						<img src="images/icons/png/Calendar.png" width="150" height="150"
+							alt="benefit">
+					</p>
+					<p>&nbsp;</p>
+					<h4 class="text-capitalize">Benefit #3 Here</h4>
+					<p class="text-muted">
+						<small>Lorem ipsum dolor sit amet, consetetur sadipscing
+							elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+							magna aliquyam erat, sed diam voluptua.</small>
+					</p>
+					<p>&nbsp;</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Section -->
+	<!-- Start Section -->
+	<!-- End Section -->
+	<!-- Start Bottom Nav -->
+	<div id="bottomnav" class="jumbotron"
+		style="padding-top: 40px; padding-bottom: 40px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					Copyright 2015 YourWebsite.com | <a href="#">Terms</a> | <a
+						href="#">Privacy</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Bottom Nav -->
+	<!-- Start Modal -->
+	<div id="getquote" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">Contact Us</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="name">Your Name</label> <input type="text"
+								class="form-control" id="email" placeholder="Email">
+						</div>
+						<div class="form-group">
+							<label for="email">Email Address</label> <input type="email"
+								class="form-control" id="email" placeholder="Email">
+						</div>
+						<div class="form-group">
+							<label for="comments">Your Question</label>
+							<textarea name="comments" class="form-control" id="comments"></textarea>
+							<p class="help-block">Tell us what you need and we're ready
+								to help you.</p>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Submit</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+	<!-- End Modal -->
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="assets/js/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/AllLaptopsTable.js"></script>
+	<!-- Start JS Config (This is where you configure the Bootstrap JS options) -->
+
+	<!-- End JS Config -->
+</body>
 </html>

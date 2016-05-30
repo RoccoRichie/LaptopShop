@@ -4,42 +4,47 @@
 <head>
 <style>
 h1 {
-    border-bottom: 3px solid #cc9900;
-    color: #996600;
-    font-size: 30px;
+	border-bottom: 3px solid #cc9900;
+	color: #996600;
+	font-size: 30px;
 }
-table, th , td {
-    border: 1px solid grey;
-    border-collapse: collapse;
-    padding: 5px;
+
+table, th, td {
+	border: 1px solid grey;
+	border-collapse: collapse;
+	padding: 5px;
 }
+
 table tr:nth-child(odd) {
-    background-color: #f1f1f1;
+	background-color: #f1f1f1;
 }
+
 table tr:nth-child(even) {
-    background-color: #ffffff;
+	background-color: #ffffff;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Laptop Inventory</h1>
-<div id="id01"></div>
+	<h1>Laptop Inventory</h1>
+	<div id="id01"></div>
 
-<script>
+	<script>
 var xmlhttp = new XMLHttpRequest();
 var url = "http://localhost:8080/laptopshop/inventory";
 
 xmlhttp.onreadystatechange=function() {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        myFunction(xmlhttp.responseText);
+    if (xmlhttp.readyState == 4) {
+    if(xmlhttp.status == 200 || xmlhttp.status == 304) {
+        parseJson(xmlhttp.responseText);
+    }
     }
 }
 xmlhttp.open("GET", url, true);
 xmlhttp.send();
 
-function myFunction(response) {
+function parseJson(response) {
     var arr = JSON.parse(response);
     var i;
     var out = "<table>";

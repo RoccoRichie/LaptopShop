@@ -73,19 +73,19 @@ public class IntegrationTest {
 
 	@Test
 	public void testGetAllLaptops() {
-		List<Laptop> laptopList = laptopDAO.getAllLaptops();
+		List<Laptop> laptopList = laptopDAO.findAllLaptops();
 		assertEquals("Data fetch = data persisted", laptopList.size(), 1);
 	}
 
 	@Test
 	public void testGetLaptopByName() {
-		List<Laptop> laptopList = laptopDAO.getLaptopsByName("Arquillian");
+		List<Laptop> laptopList = laptopDAO.findLaptopsByName("Arquillian");
 		assertTrue(laptopList.get(0).getName().equals("Arquillian"));
 	}
 
 	@Test
 	public void testGetLaptopById() {
-		Laptop laptop = laptopDAO.getLaptopById(1);
+		Laptop laptop = laptopDAO.findLaptopById(1);
 		assertTrue(laptop.getName().equals("Arquillian"));
 	}
 
@@ -104,7 +104,7 @@ public class IntegrationTest {
 		laptop2.setPrice(8888.99);
 
 		laptopDAO.save(laptop2);
-		List<Laptop> laptopList = laptopDAO.getAllLaptops();
+		List<Laptop> laptopList = laptopDAO.findAllLaptops();
 		assertEquals("Data fetch = data persisted", laptopList.size(), 2);
 
 	}
@@ -135,7 +135,7 @@ public class IntegrationTest {
 	@Test
 	public void testDelete() {
 		laptopDAO.delete(1);
-		List<Laptop> laptopList = laptopDAO.getAllLaptops();
+		List<Laptop> laptopList = laptopDAO.findAllLaptops();
 		assertEquals("Laptop Deleted", laptopList.size(), 0);
 	}
 

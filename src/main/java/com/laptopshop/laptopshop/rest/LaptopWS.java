@@ -27,42 +27,78 @@ public class LaptopWS {
 	@EJB
 	private LaptopDAO laptopDAO;
 
-	// this works
-	// @GET
-	// @Path("/find/{lapName}")
-	// @Produces({ MediaType.APPLICATION_JSON })
-	// public Response findByName(@PathParam("lapName") String lapName) {
-	// System.out.println("Get Laptop by name");
-	// // lapName = lapName.replaceAll("_", " ");
-	// Laptop laptops = laptopDAO.getLaptopByName(lapName);
-	// return Response.status(200).entity(laptops).build();
-	// }
-
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Response findAllLaptops() {
+	public Response getAllLaptops() {
 		System.out.println("Get all Laptops");
-		List<Laptop> laptops = laptopDAO.getAllLaptops();
+		List<Laptop> laptops = laptopDAO.findAllLaptops();
 		System.out.println("...got laptops...");
 		System.out.println(laptops.size());
 		return Response.status(200).entity(laptops).build();
 	}
 
 	@GET
-	@Path("/find/{query}")
+	@Path("/name/{query}")
 	@Produces({ MediaType.APPLICATION_JSON })
-	public Response findByName(@PathParam("query") String query) {
+	public Response getByName(@PathParam("query") String query) {
 		System.out.println("findByName: " + query);
-		List<Laptop> laptops = laptopDAO.getLaptopsByName(query);
-		return Response.status(200).entity(laptops).build();
+		List<Laptop> laptops = laptopDAO.findLaptopsByName(query);
+		if (laptops.size() != 0) {
+			return Response.status(200).entity(laptops).build();
+		} else {
+			return Response.status(416).entity(laptops).build();
+		}
 	}
+
+	@GET
+	@Path("/brand/{query2}")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public Response getLaptopsByBrand(@PathParam("query2") String query) {
+		System.out.println("findLaptopsByBrand: " + query);
+		List<Laptop> laptops = laptopDAO.findLaptopsByBrand(query);
+		if (laptops.size() != 0) {
+			return Response.status(200).entity(laptops).build();
+		} else {
+			return Response.status(416).entity(laptops).build();
+		}
+	}
+
+	@GET
+	@Path("/memory/{query3}")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public Response getLaptopsByMemory(@PathParam("query3") String query) {
+		System.out.println("findLaptopsByMemory: " + query);
+		List<Laptop> laptops = laptopDAO.findLaptopsByMemory(query);
+		if (laptops.size() != 0) {
+			return Response.status(200).entity(laptops).build();
+		} else {
+			return Response.status(416).entity(laptops).build();
+		}
+	}
+
+	// @GET
+	// @Path("/search/{query4}")
+	// @Produces({ MediaType.APPLICATION_JSON })
+	// public Response getAnyLaptops(@PathParam("query4") String query) {
+	// System.out.println("getAnyLaptops: " + query);
+	// List<Laptop> laptops = laptopDAO.findAnyLaptops(query);
+	// if (laptops.size() != 0) {
+	// return Response.status(200).entity(laptops).build();
+	// } else {
+	// return Response.status(416).entity(laptops).build();
+	// }
+	// }
 
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
 	@Path("/{id}")
-	public Response findLaptopById(@PathParam("id") int id) {
-		Laptop laptop = laptopDAO.getLaptopById(id);
-		return Response.status(200).entity(laptop).build();
+	public Response getLaptopById(@PathParam("id") int id) {
+		Laptop laptop = laptopDAO.findLaptopById(id);
+		if (laptop != null) {
+			return Response.status(200).entity(laptop).build();
+		} else {
+			return Response.status(416).entity(laptop).build();
+		}
 	}
 
 	@POST
@@ -73,7 +109,7 @@ public class LaptopWS {
 	}
 
 	@PUT
-	@Path("/{id}")
+	// @Path("/{id}")
 	@Consumes("application/json")
 	@Produces({ MediaType.APPLICATION_JSON })
 	public Response updateLaptop(Laptop laptop) {
