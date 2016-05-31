@@ -76,19 +76,6 @@ public class LaptopWS {
 		}
 	}
 
-	// @GET
-	// @Path("/search/{query4}")
-	// @Produces({ MediaType.APPLICATION_JSON })
-	// public Response getAnyLaptops(@PathParam("query4") String query) {
-	// System.out.println("getAnyLaptops: " + query);
-	// List<Laptop> laptops = laptopDAO.findAnyLaptops(query);
-	// if (laptops.size() != 0) {
-	// return Response.status(200).entity(laptops).build();
-	// } else {
-	// return Response.status(416).entity(laptops).build();
-	// }
-	// }
-
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON })
 	@Path("/{id}")
@@ -123,5 +110,18 @@ public class LaptopWS {
 		laptopDAO.delete(id);
 		return Response.status(204).build();
 	}
+
+	// @GET
+	// @Path("/search/{query4}")
+	// @Produces({ MediaType.APPLICATION_JSON })
+	// public Response getAnyLaptops(@PathParam("query4") String query) {
+	// System.out.println("getAnyLaptops: " + query);
+	// List<Laptop> laptops = laptopDAO.findAnyLaptops(query);
+	// if (laptops.size() != 0) {
+	// return Response.status(200).entity(laptops).build();
+	// } else {
+	// return Response.status(416).entity(laptops).build();
+	// }
+	// }
 
 }

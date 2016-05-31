@@ -44,6 +44,20 @@ public class LaptopDAO {
 		return em.find(Laptop.class, id);
 	}
 
+	public void save(Laptop laptop) {
+		em.persist(laptop);
+	}
+
+	public void update(Laptop laptop) {
+		System.out.println("Laptop with id: " + laptop.getId() + " was updated");
+		em.merge(laptop);
+	}
+
+	public void delete(int id) {
+		System.out.println("Laptop with id: " + id + " was deleted.");
+		em.remove(findLaptopById(id));
+	}
+
 	// public List<Laptop> findAnyLaptops(String searchTerm) {
 	// String queries = "SELECT l FROM Laptop l";
 	// if (!searchTerm.equals("")) {
@@ -65,19 +79,5 @@ public class LaptopDAO {
 	// Query query = em.createQuery(queries);
 	// return query.getResultList();
 	// }
-
-	public void save(Laptop laptop) {
-		em.persist(laptop);
-	}
-
-	public void update(Laptop laptop) {
-		System.out.println("Laptop with id: " + laptop.getId() + " was updated");
-		em.merge(laptop);
-	}
-
-	public void delete(int id) {
-		System.out.println("Laptop with id: " + id + " was deleted.");
-		em.remove(findLaptopById(id));
-	}
 
 }
