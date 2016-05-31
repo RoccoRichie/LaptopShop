@@ -1,6 +1,6 @@
 // JavaScript Document
 var xmlhttp = new XMLHttpRequest();
-var url = "http://localhost:8080/laptopshop/inventory";
+var url = "http://localhost:8080/laptopshop/rest/inventory";
 
 xmlhttp.onreadystatechange=function() {
     if (xmlhttp.readyState == 4) {

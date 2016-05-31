@@ -7,22 +7,12 @@ import org.junit.Test;
 
 import com.laptopshop.laptopshop.model.Laptop;
 
-public class LaptopTest {
+public class TestLaptop {
 	private Laptop laptop;
 
 	@Before
 	public void setup() {
 		laptop = new Laptop();
-		// laptop.setId(10);
-		// laptop.setName("J-Unit");
-		// laptop.setBrand("test");
-		// laptop.setDisplay("10");
-		// laptop.setProcessor("Athlone");
-		// laptop.setLapMem("1000");
-		// laptop.setHarddrive("Evs");
-		// laptop.setGraphics("999");
-		// laptop.setNumUsbs(9);
-		// laptop.setPrice(999.99);
 	}
 
 	@Test

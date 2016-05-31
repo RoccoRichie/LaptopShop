@@ -1,7 +1,7 @@
 package com.laptopshop.laptopshop.test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNull;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ import com.laptopshop.laptopshop.test.utils.UtilsDAO;
 
 //	@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(Arquillian.class)
-public class IntegrationTest {
+public class TestIntegration {
 
 	@Deployment
 	public static Archive<?> createTestArchive() {
@@ -52,9 +52,6 @@ public class IntegrationTest {
 
 	@Before
 	public void setUp() {
-		// this function means that we start with an empty table
-		// And add one wine
-		// it should be possible to test with an in memory db for efficiency
 		utilsDAO.deleteTable();
 		Laptop laptop = new Laptop();
 		laptop.setId(1);
@@ -73,25 +70,37 @@ public class IntegrationTest {
 
 	@Test
 	public void testGetAllLaptops() {
+		// Given
+		// When
 		List<Laptop> laptopList = laptopDAO.findAllLaptops();
-		assertEquals("Data fetch = data persisted", laptopList.size(), 1);
+		// Then
+		assertEquals("GetAll Laptops() Failed.....", laptopList.size(), 1);
 	}
 
 	@Test
 	public void testGetLaptopByName() {
+		// Given
+		// When
 		List<Laptop> laptopList = laptopDAO.findLaptopsByName("Arquillian");
-		assertTrue(laptopList.get(0).getName().equals("Arquillian"));
+		// Then
+		assertEquals("Laptop getName() failed...", laptopList.get(0).getName(), "Arquillian");
 	}
 
 	@Test
 	public void testGetLaptopById() {
+		// Given
+		// When
 		Laptop laptop = laptopDAO.findLaptopById(1);
-		assertTrue(laptop.getName().equals("Arquillian"));
+		// Then
+		assertEquals("Laptop getId() failed...", laptop.getId(), 1);
 	}
 
 	@Test
 	public void testSaveMethod() {
+		// Given
 		Laptop laptop2 = new Laptop();
+
+		// When
 		laptop2.setId(2);
 		laptop2.setName("Richie");
 		laptop2.setBrand("test");
@@ -105,13 +114,16 @@ public class IntegrationTest {
 
 		laptopDAO.save(laptop2);
 		List<Laptop> laptopList = laptopDAO.findAllLaptops();
-		assertEquals("Data fetch = data persisted", laptopList.size(), 2);
+		// Then
+		assertEquals("Laptop did not persist properly in Database...", laptopList.size(), 2);
 
 	}
 
 	@Test
 	public void testUpdate() {
+		// Given
 		Laptop laptop3 = new Laptop();
+		// When
 		laptop3.setId(3);
 		laptop3.setName("Richie");
 		laptop3.setBrand("test");
@@ -127,22 +139,18 @@ public class IntegrationTest {
 
 		laptop3.setName("Peter Andre");
 		laptopDAO.update(laptop3);
-
-		assertTrue(laptop3.getName().equals("Peter Andre"));
+		// Then
+		assertEquals("Laptop Update failed...", laptop3.getName(), "Peter Andre");
 
 	}
 
 	@Test
 	public void testDelete() {
+		// Given...in before
+		// When
 		laptopDAO.delete(1);
-		List<Laptop> laptopList = laptopDAO.findAllLaptops();
-		assertEquals("Laptop Deleted", laptopList.size(), 0);
+		Laptop laptopID = laptopDAO.findLaptopById(1);
+		// Then
+		assertNull("Laptop Deleted failed...", laptopID);
 	}
-
-	// @After
-	// public void teardown() {
-	// utilsDAO.deleteTable();
-	// utilsDAO.reBuildTable();
-	// }
-
 }

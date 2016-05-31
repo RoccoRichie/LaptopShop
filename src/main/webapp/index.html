@@ -25,6 +25,7 @@
 	margin-bottom: 0px;
 }
 </style>
+
 <!-- End Inline CSS -->
 </head>
 <body style="padding-top: 50px;">
@@ -95,7 +96,55 @@
 	<!-- End Section -->
 	<!-- Start Section -->
 	<!-- Insert the Laptop Lists -->
+		<h1>Laptop Inventory</h1>
 	<div id="id01"></div>
+
+	<script>
+var xmlhttp = new XMLHttpRequest();
+var url = "http://localhost:8080/laptopshop/rest/inventory";
+
+xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState == 4) {
+    if(xmlhttp.status == 200 || xmlhttp.status == 304) {
+        parseJson(xmlhttp.responseText);
+    }
+    }
+}
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function parseJson(response) {
+    var arr = JSON.parse(response);
+    var i;
+    var out = "<table>";
+
+    for(i = 0; i < arr.length; i++) {
+        out += "<tr><td>" +
+        arr[i].id +
+        "</td><td>" +
+        arr[i].name +
+        "</td><td>" +
+        arr[i].brand +
+        "</td><td>" +
+        arr[i].display +
+        "</td><td>" +
+        arr[i].processor +
+        "</td><td>" +
+        arr[i].memory +
+        "</td><td>" +
+        arr[i].harddrive +
+        "</td><td>" +
+        arr[i].graphics +
+        "</td><td>" +
+        arr[i].numUsbs +
+        "</td><td>" +
+        arr[i].price +
+        "</td></tr>";
+    }
+    out += "</table>";
+    document.getElementById("id01").innerHTML = out;
+}
+</script>
 	<div class="container">
 		<a class="btn btn-info" role="button" data-toggle="collapse"
 			href="#collapse_alertInfo" aria-expanded="true" id="laptopAllList"><span
@@ -115,13 +164,11 @@
 		</div>
 		<div id="collapse_alertSuccess" class="collapse out">
 			<p></p>
-			<div class="alert alert-success">Hey there! Pay attention to
-				this notice because it's really, and I mean REALLY, IMPORTANTE!</div>
+			<div class="alert alert-success">Search Laptops by Brand</div>
 		</div>
 		<div id="collapse_alertDanger" class="collapse out">
 			<p></p>
-			<div class="alert alert-danger">Hey there! Pay attention to
-				this notice because it's really, and I mean REALLY, IMPORTANTE!</div>
+			<div class="alert alert-danger">Find Laptops by Memory</div>
 		</div>
 
 	</div>
