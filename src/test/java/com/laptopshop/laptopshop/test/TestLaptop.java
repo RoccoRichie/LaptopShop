@@ -23,8 +23,8 @@ public class TestLaptop {
 
 	@Test
 	public void testSetAndGetName() {
-		laptop.setName("Richie");
-		assertEquals("Richie", laptop.getName());
+		laptop.setLapName("Richie");
+		assertEquals("Richie", laptop.getLapName());
 	}
 
 	@Test
@@ -65,14 +65,14 @@ public class TestLaptop {
 
 	@Test
 	public void testSetAndGetNumUsbs() {
-		laptop.setNumUsbs(2);
-		assertEquals(2, laptop.getNumUsbs());
+		laptop.setNumUsbs("2");
+		assertEquals("2", laptop.getNumUsbs());
 	}
 
 	@Test
 	public void testSetAndGetPrice() {
-		laptop.setPrice(1099.89);
-		assertEquals(1099.89, laptop.getPrice(), 0.02);
+		laptop.setPrice("1099.89");
+		assertEquals("1099.89", laptop.getPrice());
 	}
 
 }

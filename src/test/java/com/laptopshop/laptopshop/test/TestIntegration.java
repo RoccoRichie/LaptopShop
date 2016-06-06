@@ -55,15 +55,15 @@ public class TestIntegration {
 		utilsDAO.deleteTable();
 		Laptop laptop = new Laptop();
 		laptop.setId(1);
-		laptop.setName("Arquillian");
+		laptop.setLapName("Arquillian");
 		laptop.setBrand("test");
 		laptop.setDisplay("20");
 		laptop.setProcessor("Athlone");
 		laptop.setLapMem("2000");
 		laptop.setHarddrive("Big");
 		laptop.setGraphics("1234");
-		laptop.setNumUsbs(99);
-		laptop.setPrice(9999.99);
+		laptop.setNumUsbs("99");
+		laptop.setPrice("9999.99");
 
 		laptopDAO.save(laptop);
 	}
@@ -83,7 +83,7 @@ public class TestIntegration {
 		// When
 		List<Laptop> laptopList = laptopDAO.findLaptopsByName("Arquillian");
 		// Then
-		assertEquals("Laptop getName() failed...", laptopList.get(0).getName(), "Arquillian");
+		assertEquals("Laptop getName() failed...", laptopList.get(0).getLapName(), "Arquillian");
 	}
 
 	@Test
@@ -102,15 +102,15 @@ public class TestIntegration {
 
 		// When
 		laptop2.setId(2);
-		laptop2.setName("Richie");
+		laptop2.setLapName("Richie");
 		laptop2.setBrand("test");
 		laptop2.setDisplay("30");
 		laptop2.setProcessor("Longford");
 		laptop2.setLapMem("4000");
 		laptop2.setHarddrive("Small");
 		laptop2.setGraphics("4321");
-		laptop2.setNumUsbs(9);
-		laptop2.setPrice(8888.99);
+		laptop2.setNumUsbs("9");
+		laptop2.setPrice("8888.99");
 
 		laptopDAO.save(laptop2);
 		List<Laptop> laptopList = laptopDAO.findAllLaptops();
@@ -125,22 +125,22 @@ public class TestIntegration {
 		Laptop laptop3 = new Laptop();
 		// When
 		laptop3.setId(3);
-		laptop3.setName("Richie");
+		laptop3.setLapName("Richie");
 		laptop3.setBrand("test");
 		laptop3.setDisplay("30");
 		laptop3.setProcessor("Longford");
 		laptop3.setLapMem("4000");
 		laptop3.setHarddrive("Small");
 		laptop3.setGraphics("4321");
-		laptop3.setNumUsbs(9);
-		laptop3.setPrice(8888.99);
+		laptop3.setNumUsbs("9");
+		laptop3.setPrice("8888.99");
 
 		laptopDAO.save(laptop3);
 
-		laptop3.setName("Peter Andre");
+		laptop3.setLapName("Peter Andre");
 		laptopDAO.update(laptop3);
 		// Then
-		assertEquals("Laptop Update failed...", laptop3.getName(), "Peter Andre");
+		assertEquals("Laptop Update failed...", laptop3.getLapName(), "Peter Andre");
 
 	}
 

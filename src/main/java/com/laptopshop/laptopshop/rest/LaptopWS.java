@@ -96,7 +96,7 @@ public class LaptopWS {
 	}
 
 	@PUT
-	// @Path("/{id}")
+	@Path("/{id}")
 	@Consumes("application/json")
 	@Produces({ MediaType.APPLICATION_JSON })
 	public Response updateLaptop(Laptop laptop) {

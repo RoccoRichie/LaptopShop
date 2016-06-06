@@ -29,9 +29,35 @@ public class Laptop {
 
 	private String graphics;
 
-	private int numUsb;
+	private String numUsb;
 
-	private double price;
+	private String picture;
+
+	private String price;
+
+	public String getLapName() {
+		return lapName;
+	}
+
+	public void setLapName(String lapName) {
+		this.lapName = lapName;
+	}
+
+	public String getNumUsb() {
+		return numUsb;
+	}
+
+	public void setNumUsb(String numUsb) {
+		this.numUsb = numUsb;
+	}
+
+	public String getPicture() {
+		return picture;
+	}
+
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
 
 	public int getId() {
 		return id;
@@ -39,14 +65,6 @@ public class Laptop {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return lapName;
-	}
-
-	public void setName(String lapName) {
-		this.lapName = lapName;
 	}
 
 	public String getBrand() {
@@ -97,19 +115,19 @@ public class Laptop {
 		this.graphics = graphics;
 	}
 
-	public int getNumUsbs() {
+	public String getNumUsbs() {
 		return numUsb;
 	}
 
-	public void setNumUsbs(int numUsbs) {
+	public void setNumUsbs(String numUsbs) {
 		this.numUsb = numUsbs;
 	}
 
-	public double getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 
